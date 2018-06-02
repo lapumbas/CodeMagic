@@ -1,4 +1,4 @@
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
   // ctx.fillStyle= 'rgba(0,0,0,0.7)';
   // ctx.fillRect(110,20,270,420);
   // ctx.fillStyle= 'white';
@@ -43,23 +43,23 @@ window.renderStatistics = function(ctx, names, times) {
   ctx.fill();
   ctx.restore();
 
-  ctx.fillStyle= 'black';
+  ctx.fillStyle = 'black';
   ctx.font = '26px PT Mono';
   ctx.fillText('Ура вы победили!', 190, 40);
   ctx.fillText('Список результатов:', 190, 70);
-  
+
   let maxTime = Math.max(...times);
   let barWidth = 70; //px
   let maxBarHeight = 140; //px
   let baseYCoordinate = 220; //px
-  
+
   for (let i = 0; i < times.length; i++) {
     let barHeight = maxBarHeight * times[i] / maxTime;
     let barXCoordinate = 100 + i * 100; //px
-    let randomOpacity = Math.random().toFixed(1);
+    let randomOpacity = (Math.random() * 0.8 + 0.2).toFixed(1);
     ctx.fillStyle = names[i] == 'Вы' ? 'rgba(255,0,0,1)' : `rgba(0,0,255,${randomOpacity})`;
     ctx.fillRect(barXCoordinate, baseYCoordinate - barHeight, barWidth, barHeight);
-    ctx.fillStyle= 'black';
+    ctx.fillStyle = 'black';
     ctx.font = '20px PT Mono';
     ctx.fillText(names[i], barXCoordinate, baseYCoordinate + 20);
     ctx.fillText(`${Math.floor(times[i])}`, barXCoordinate, baseYCoordinate + 40);

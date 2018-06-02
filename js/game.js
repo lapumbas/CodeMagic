@@ -263,20 +263,20 @@ window.Game = (function () {
    */
   LevelsInitialize[Level.INTRO] = function (state) {
     state.objects.push(
-        // Установка персонажа в начальное положение. Он стоит в крайнем левом
-        // углу экрана, глядя вправо. Скорость перемещения персонажа на этом
-        // уровне равна 2px за кадр.
-        {
-          direction: Direction.RIGHT,
-          height: window.GameConstants.Wizard.getHeight(window.GameConstants.Wizard.width),
-          speed: window.GameConstants.Wizard.speed,
-          sprite: SpriteMap[ObjectType.ME],
-          state: ObjectState.OK,
-          type: ObjectType.ME,
-          width: window.GameConstants.Wizard.width,
-          x: window.GameConstants.Wizard.getX(WIDTH),
-          y: window.GameConstants.Wizard.getY(HEIGHT)
-        }
+      // Установка персонажа в начальное положение. Он стоит в крайнем левом
+      // углу экрана, глядя вправо. Скорость перемещения персонажа на этом
+      // уровне равна 2px за кадр.
+      {
+        direction: Direction.RIGHT,
+        height: window.GameConstants.Wizard.getHeight(window.GameConstants.Wizard.width),
+        speed: window.GameConstants.Wizard.speed,
+        sprite: SpriteMap[ObjectType.ME],
+        state: ObjectState.OK,
+        type: ObjectType.ME,
+        width: window.GameConstants.Wizard.width,
+        x: window.GameConstants.Wizard.getX(WIDTH),
+        y: window.GameConstants.Wizard.getY(HEIGHT)
+      }
     );
 
     return state;
@@ -442,26 +442,26 @@ window.Game = (function () {
     _drawPauseScreen: function () {
       var message;
       switch (this.state.currentStatus) {
-        case Verdict.WIN:
-          if (window.renderStatistics) {
-            var statistics = this._generateStatistics(new Date() - this.state.startTime);
-            var keys = this._shuffleArray(Object.keys(statistics));
-            window.renderStatistics(this.ctx, keys, keys.map(function (it) {
-              return statistics[it];
-            }));
-            return;
-          }
-          message = 'Вы победили Газебо!\nУра!';
-          break;
-        case Verdict.FAIL:
-          message = 'Вы проиграли!';
-          break;
-        case Verdict.PAUSE:
-          message = 'Игра на паузе!\nНажмите Пробел, чтобы продолжить';
-          break;
-        case Verdict.INTRO:
-          message = 'Добро пожаловать!\nНажмите Пробел для начала игры';
-          break;
+      case Verdict.WIN:
+        if (window.renderStatistics) {
+          var statistics = this._generateStatistics(new Date() - this.state.startTime);
+          var keys = this._shuffleArray(Object.keys(statistics));
+          window.renderStatistics(this.ctx, keys, keys.map(function (it) {
+            return statistics[it];
+          }));
+          return;
+        }
+        message = 'Вы победили Газебо!\nУра!';
+        break;
+      case Verdict.FAIL:
+        message = 'Вы проиграли!';
+        break;
+      case Verdict.PAUSE:
+        message = 'Игра на паузе!\nНажмите Пробел, чтобы продолжить';
+        break;
+      case Verdict.INTRO:
+        message = 'Добро пожаловать!\nНажмите Пробел для начала игры';
+        break;
       }
 
       this._drawMessage(message);
@@ -727,20 +727,20 @@ window.Game = (function () {
       this.checkStatus();
 
       switch (this.state.currentStatus) {
-        case Verdict.CONTINUE:
-          this.state.lastUpdated = Date.now();
-          this.render();
-          requestAnimationFrame(function () {
-            this.update();
-          }.bind(this));
-          break;
+      case Verdict.CONTINUE:
+        this.state.lastUpdated = Date.now();
+        this.render();
+        requestAnimationFrame(function () {
+          this.update();
+        }.bind(this));
+        break;
 
-        case Verdict.WIN:
-        case Verdict.FAIL:
-        case Verdict.PAUSE:
-        case Verdict.INTRO:
-          this.pauseLevel();
-          break;
+      case Verdict.WIN:
+      case Verdict.FAIL:
+      case Verdict.PAUSE:
+      case Verdict.INTRO:
+        this.pauseLevel();
+        break;
       }
     },
 
@@ -750,18 +750,18 @@ window.Game = (function () {
      */
     _onKeyDown: function (evt) {
       switch (evt.keyCode) {
-        case 37:
-          this.state.keysPressed.LEFT = true;
-          break;
-        case 39:
-          this.state.keysPressed.RIGHT = true;
-          break;
-        case 38:
-          this.state.keysPressed.UP = true;
-          break;
-        case 27:
-          this.state.keysPressed.ESC = true;
-          break;
+      case 37:
+        this.state.keysPressed.LEFT = true;
+        break;
+      case 39:
+        this.state.keysPressed.RIGHT = true;
+        break;
+      case 38:
+        this.state.keysPressed.UP = true;
+        break;
+      case 27:
+        this.state.keysPressed.ESC = true;
+        break;
       }
 
       if (evt.shiftKey) {
@@ -775,18 +775,18 @@ window.Game = (function () {
      */
     _onKeyUp: function (evt) {
       switch (evt.keyCode) {
-        case 37:
-          this.state.keysPressed.LEFT = false;
-          break;
-        case 39:
-          this.state.keysPressed.RIGHT = false;
-          break;
-        case 38:
-          this.state.keysPressed.UP = false;
-          break;
-        case 27:
-          this.state.keysPressed.ESC = false;
-          break;
+      case 37:
+        this.state.keysPressed.LEFT = false;
+        break;
+      case 39:
+        this.state.keysPressed.RIGHT = false;
+        break;
+      case 38:
+        this.state.keysPressed.UP = false;
+        break;
+      case 27:
+        this.state.keysPressed.ESC = false;
+        break;
       }
 
       if (evt.shiftKey) {
