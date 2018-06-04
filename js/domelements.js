@@ -11,7 +11,10 @@
     wizardFireball: document.querySelector('.setup-fireball-wrap'),
     wizardTemplate: document.querySelector('#similar-wizard-template').content,
     similarList: document.querySelector('.setup-similar-list'),
-    fragment: document.createDocumentFragment()
+    fragment: document.createDocumentFragment(),
+    setupUserPic: document.querySelector('.setup-user-pic'),
+    setupArtifactsShop: document.querySelector('.setup-artifacts-shop'),
+    setupArtifactsBag: document.querySelector('.setup-artifacts'),
   };
 
 })();
