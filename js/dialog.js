@@ -11,16 +11,6 @@
       x: evt.clientX,
       y: evt.clientY
     };
-    // let startObjectCoords = {
-    //   x: wde.setup.style.left,
-    //   y: wde.setup.style.top
-    // };
-
-    // const onMouseMove = (moveEvt) => {
-    //   moveEvt.preventDefault();
-    //   wde.setup.style.top = `${startObjectCoords.y - startCursorCoords.y + moveEvt.clientY}px`;
-    //   wde.setup.style.left = `${startObjectCoords.x - startCursorCoords.x + moveEvt.clientX}px`;
-    // };
 
     const onMouseMove = (moveEvt) => {
       moveEvt.preventDefault();

@@ -2,29 +2,18 @@
 
 (() => {
   let wde = window.domelements;
-  let wu = window.utils;
-  
-  let wizardCoatClickHandler = () => {
-    wde.wizardCoat.style.fill = wu.getRandomElement(window.data.COAT_COLORS);
-  };
 
-  let wizardEyesClickHandler = () => {
-    wde.wizardEyes.style.fill = wu.getRandomElement(window.data.EYES_COLORS);
-  };
+  function fillColor(elem, color) {
+    elem.style.fill = color;
+  }
 
-  let wizardFireballClickHandler = () => {
-    wde.wizardFireball.style.backgroundColor = wu.getRandomElement(window.data.FIREBALLS_COLORS);
-  };
+  function fillBackground(elem, color) {
+    elem.style.backgroundColor = color;
+  }
 
-  wde.wizardCoat.addEventListener('click', () => {
-    wizardCoatClickHandler();
-  });
+  window.colorizeElement(wde.wizardCoat, window.data.COAT_COLORS, fillColor);
+  window.colorizeElement(wde.wizardEyes, window.data.EYES_COLORS, fillColor);
+  window.colorizeElement(wde.wizardFireball, window.data.FIREBALLS_COLORS, fillBackground);
 
-  wde.wizardEyes.addEventListener('click', () => {
-    wizardEyesClickHandler();
-  });
 
-  wde.wizardFireball.addEventListener('click', () => {
-    wizardFireballClickHandler();
-  });
 })();

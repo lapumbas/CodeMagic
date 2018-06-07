@@ -5,6 +5,7 @@
     getRandomElement: (arr) => {
       return arr[(Math.floor(Math.random() * arr.length))];
     },
+
     isEnterPressed: (evt) => {
       if (evt.keyCode === 13) {
         return true;
@@ -12,6 +13,7 @@
         return false;
       }
     },
+    
     isESCPressed: (evt) => {
       if (evt.keyCode === 27) {
         return true;
