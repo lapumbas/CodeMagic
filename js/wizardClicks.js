@@ -15,5 +15,4 @@
   window.colorizeElement(wde.wizardEyes, window.data.EYES_COLORS, fillColor);
   window.colorizeElement(wde.wizardFireball, window.data.FIREBALLS_COLORS, fillBackground);
 
-
 })();
